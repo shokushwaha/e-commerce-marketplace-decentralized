@@ -25,7 +25,7 @@
     transform: translate(-50%, -50%);
     z-index: 2;
 
-    background: var(--clr-white);
+    background: azure;
 }
 
 .productImage {
@@ -75,7 +75,7 @@
     max-width: 300px;
     height: 90%;
 
-    border: 1px solid var(--clr-grey);
+    border: 1px solid #707070;
     padding: 20px;
 }
 
@@ -88,28 +88,24 @@
     width: 225px;
     height: 40px;
     margin: 20px 0;
-
-    background-color: var(--clr-orange);
-    color: var(--clr-black);
-
+    background-color: #2bbce9;
+    color: black;
     border: none;
     border-radius: 24px;
-
     font-family: "Open Sans";
     font-size: 0.95em;
     font-weight: 600;
-
     cursor: pointer;
     transition: all 250ms ease;
 }
 
 .productBuy:hover {
-    background-color: var(--clr-orange-dark);
+    background-color: #1897bd;
 }
 
 .productBought {
     padding: 5px;
-    border: 1px solid var(--clr-grey);
+    border: 1px solid #707070;
 }
 
 @media screen and (max-width: 992px) {
