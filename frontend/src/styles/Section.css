@@ -1,0 +1,61 @@
+.cardsSection {
+    max-width: 1200px;
+    margin: 0 auto 50px;
+    padding: 0 20px;
+}
+
+.cardsSsection h3 {
+    font-size: 1.75em;
+    margin: 20px 0;
+}
+
+.cards {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+    margin-top: 20px;
+}
+
+.card {
+    width: 300px;
+    height: 400px;
+    margin: 10px auto;
+    cursor: pointer;
+    position: relative;
+    transition: all 100ms ease;
+}
+
+.card:hover {
+    box-shadow: 0 0 10px #707070;
+}
+
+.cardImage {
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+}
+
+.cardImage img {
+    max-width: 100%;
+}
+
+.cardInfo {
+    width: 100%;
+    background-color: azure;
+    padding: 5px 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.cardInfo .rating {
+    color: yellow;
+    margin: 5px 0;
+}
+
+.cardIinfo p {
+    font-family: "Open Sans";
+    font-size: 0.95em;
+    font-weight: 600;
+    margin-top: 5px;
+}

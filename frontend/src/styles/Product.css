@@ -1,0 +1,138 @@
+.product {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.productDetails {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+    align-items: center;
+
+    width: 80%;
+    height: 80%;
+    margin: 0 auto;
+    padding: 20px;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+
+    background: var(--clr-white);
+}
+
+.productImage {
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+.productImage img {
+    max-width: 100%;
+}
+
+.productClose {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    width: 30px;
+    height: 30px;
+
+    background: transparent;
+    border: none;
+
+    cursor: pointer;
+}
+
+.productClose img {
+    width: 25px;
+    height: 25px;
+}
+
+.productOverview {
+    height: 90%;
+    padding: 20px 40px 20px 20px;
+}
+
+.productOverview h2,
+.productOverview hr,
+.productOverview .rating {
+    margin: 10px auto;
+}
+
+.productOverview ul {
+    margin-left: 40px;
+}
+
+.productOrder {
+    max-width: 300px;
+    height: 90%;
+
+    border: 1px solid var(--clr-grey);
+    padding: 20px;
+}
+
+.productOrder h1,
+.productOrder p {
+    margin-bottom: 10px;
+}
+
+.productBuy {
+    width: 225px;
+    height: 40px;
+    margin: 20px 0;
+
+    background-color: var(--clr-orange);
+    color: var(--clr-black);
+
+    border: none;
+    border-radius: 24px;
+
+    font-family: "Open Sans";
+    font-size: 0.95em;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: all 250ms ease;
+}
+
+.productBuy:hover {
+    background-color: var(--clr-orange-dark);
+}
+
+.productBought {
+    padding: 5px;
+    border: 1px solid var(--clr-grey);
+}
+
+@media screen and (max-width: 992px) {
+    .productDetails {
+        height: 95%;
+        width: 90%;
+    }
+
+    .productOrder {
+        max-width: 100%;
+        height: 100%;
+        margin-top: 20px;
+        grid-column: span 2;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .productDetails {
+        height: 95%;
+        overflow-y: scroll;
+    }
+
+    .productImage {
+        grid-column: span 2;
+    }
+}

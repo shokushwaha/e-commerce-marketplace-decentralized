@@ -1,0 +1,9 @@
+.foot {
+    height: 4vh;
+    background-color: black;
+    color: azure;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
