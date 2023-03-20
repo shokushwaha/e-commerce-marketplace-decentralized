@@ -16,9 +16,9 @@ export default function Section({ title, items, togglePop }) {
                             <img src={item.image} alt="Item" />
                         </div>
                         <div className='cardInfo'>
-                            <h4 style={{ fontSize: "20px", padding: "4px" }} >{item.name}</h4>
+                            <h4 style={{ fontSize: "20px", padding: "4px", color: "azure" }} >{item.name}</h4>
                             <Rating value={item.rating} />
-                            <p>Cost:{ethers.utils.formatUnits(item.cost.toString(), 'ether')} ETH</p>
+                            <p style={{ color: "azure" }} >Cost:{ethers.utils.formatUnits(item.cost.toString(), 'ether')} ETH</p>
                         </div>
                     </div>
                 ))}

@@ -25,7 +25,7 @@ nav {
 }
 
 .navLinks {
-    background-color: #232f3e;
+    background-color: azure;
     grid-column: 1 / span 3;
 
     padding: 10px;
@@ -43,11 +43,11 @@ nav {
 
 .navLinks li a {
     text-decoration: none;
-    color: azure;
+    color: black;
 }
 
 .navLinks li a:hover {
-    color: #2bbce9;
+    color: #250d42;
 }
 
 .navSearch {
@@ -57,7 +57,7 @@ nav {
 }
 
 .navSearch:hover {
-    outline: 1px solid #2bbce9;
+    outline: 1px solid #250d42;
 }
 
 .navConnect {
@@ -65,7 +65,7 @@ nav {
     height: 40px;
     margin: 0 auto;
 
-    background-color: #2bbce9;
+    background-color: azure;
     color: black;
 
     border: none;
@@ -80,9 +80,30 @@ nav {
 }
 
 .navConnect:hover {
-    background-color: #1897bd;
+    color: azure;
+    background-color: #250d42;
+    border: 1px solid azure;
 }
 
+.acccBox {
+    margin: 10px auto;
+    display: flex;
+    width: 20vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.logout {
+    width: 22%;
+    background-color: red;
+    color: azure;
+}
+
+.logout:hover {
+    border: 2px solid red;
+    color: red;
+    background-color: transparent;
+}
 
 @media screen and (max-width: 768px) {
     nav {
@@ -95,5 +116,20 @@ nav {
 
     .navSearch {
         display: none;
+    }
+
+    .acccBox {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-right: 20px;
+    }
+
+    .logout {
+        width: 30vw;
+    }
+
+    .navConnect {
+        width: 30vw;
     }
 }

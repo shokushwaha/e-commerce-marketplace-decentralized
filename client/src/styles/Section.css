@@ -2,6 +2,7 @@
     max-width: 1200px;
     margin: 0 auto 50px;
     padding: 0 20px;
+    /* background-color: azure  ; */
 }
 
 .cardsSsection h3 {
@@ -41,7 +42,7 @@
 
 .cardInfo {
     width: 100%;
-    background-color: azure;
+    background-color: #250d42;
     padding: 5px 10px;
     position: absolute;
     bottom: 0;
@@ -58,4 +59,5 @@
     font-size: 0.95em;
     font-weight: 600;
     margin-top: 5px;
+    color: azure;
 }

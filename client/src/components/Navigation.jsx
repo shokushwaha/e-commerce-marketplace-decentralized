@@ -11,7 +11,7 @@ export default function Navigation({ account, setAccount }) {
         setAccount(account);
         toast.success('Wallet connected', {
             position: "top-right",
-            autoClose: 5000,
+            autoClose: 2000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -21,11 +21,25 @@ export default function Navigation({ account, setAccount }) {
         });
 
     }
+    const handleLogout = () => {
+        setAccount(null);
+        toast.success('Logged Out', {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        });
+        window.location.reload();
+    }
     return (
         <>
             <ToastContainer
                 position="top-right"
-                autoClose={12000}
+                autoClose={2000}
                 hideProgressBar={false}
                 newestOnTop={false}
                 closeOnClick
@@ -49,11 +63,18 @@ export default function Navigation({ account, setAccount }) {
                 />
 
                 {account ? (
+                    <>
+                        <div className="acccBox">
 
-                    <h1 style={{ color: "azure", margin: "10px auto" }}>
+                            <h1 style={{ color: "azure", margin: "10px auto", borderBottom: "2px solid azure", borderTop: "2px solid azure", padding: "4px 0px" }}>
 
-                        Connected
-                    </h1>
+                                Connected
+                            </h1>
+
+                            <button type="button"
+                                className='navConnect logout ' onClick={handleLogout} >Logout</button>
+                        </div>
+                    </>
                 ) : (
                     <button
                         type="button"

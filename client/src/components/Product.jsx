@@ -21,10 +21,8 @@ export default function Product({ item, provider, account, dkart, togglePop }) {
 
     const buyHandler = async () => {
         const signer = await provider.getSigner()
-
         let transaction = await dkart.connect(signer).buy(item.id, { value: item.cost })
         await transaction.wait()
-
         setHasBought(true)
     }
 
@@ -63,7 +61,7 @@ export default function Product({ item, provider, account, dkart, togglePop }) {
                 </div>
 
                 <div className="productOrder">
-                    <h1>{ethers.utils.formatUnits(item.cost.toString(), 'ether')} ETH</h1>
+                    <h1>Price: &nbsp;{ethers.utils.formatUnits(item.cost.toString(), 'ether')} ETH</h1>
 
                     <p>
                         FREE delivery <br />
@@ -73,7 +71,7 @@ export default function Product({ item, provider, account, dkart, togglePop }) {
                     </p>
 
                     {item.stock > 0 ? (
-                        <p>In Stock.</p>
+                        <p>In Stock-Order Fast</p>
                     ) : (
                         <p>Out of Stock.</p>
                     )}

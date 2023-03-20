@@ -5,8 +5,8 @@ import Navigation from './components/Navigation'
 import Section from './components/Section'
 import Product from './components/Product'
 import Dkart from './abis/Dkart.json'
+import { RotatingSquare } from 'react-loader-spinner'
 import "./App.css"
-import Loader from './components/Loader';
 function App() {
   const [provider, setProvider] = useState(null);
   const [dkart, setDkart] = useState(null);
@@ -25,19 +25,24 @@ function App() {
     toggle ? setToggle(false) : setToggle(true)
   }
 
-
-
-
   const loadBlockchainData = async () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum)
+
+    if (provider) {
+      window.ethereum.on("chainChanged", () => {
+        window.location.reload();
+      });
+
+      window.ethereum.on("accountsChanged", () => {
+        window.location.reload();
+      });
+    }
     setProvider(provider)
     const network = await provider.getNetwork()
     const dAddress = "0xe7BF6C60A447423A4068585DE6a1E32B5f6600E4";
     const dkart = new ethers.Contract(dAddress, Dkart.abi, provider)
     setDkart(dkart)
-
     const items = []
-
     for (var i = 0; i < 9; i++) {
       const item = await dkart.items(i + 1)
       items.push(item)
@@ -55,21 +60,39 @@ function App() {
   useEffect(() => {
     loadBlockchainData();
   }, [])
+
+  if (!electronics || !clothing || !toys)
+    return <RotatingSquare
+      height="100"
+      width="100"
+      color="#250d42"
+      ariaLabel="rotating-square-loading"
+      strokeWidth="4"
+      wrapperStyle={{ height: "100vh", width: "100vw", display: "flex", alignItems: "center", justifyContent: "center", backgroundColor: "azure" }}
+      wrapperClass=""
+      visible={true}
+    />
+
+
+  if (!window.ethereum)
+    return <>Please install metamask</>
+
+
   return (
     <div className="App">
       <Navigation account={account} setAccount={setAccount} />
 
       <h2 style={{ margin: "10px auto", textAlign: "center", padding: "10px" }}  >Our Best Sellers</h2>
 
-      {clothing ? <Section title={"Clothing and Jewellery"} items={clothing} togglePop={togglePop} /> : <Loader />}
+      {clothing ? <Section title={"Clothing and Jewellery"} items={clothing} togglePop={togglePop} /> : null}
 
       {
-        electronics ? <Section title={"Electronics & Gadgets"} items={electronics} togglePop={togglePop} /> : <Loader />
+        electronics ? <Section title={"Electronics & Gadgets"} items={electronics} togglePop={togglePop} /> : null
       }
 
 
       {
-        toys ? <Section title={"Toys & Gaming"} items={toys} togglePop={togglePop} /> : <Loader />
+        toys ? <Section title={"Toys & Gaming"} items={toys} togglePop={togglePop} /> : null
       }
 
       {

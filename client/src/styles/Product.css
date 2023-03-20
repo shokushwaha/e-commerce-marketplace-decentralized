@@ -2,30 +2,29 @@
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.7);
-
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
 }
 
 .productDetails {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
     align-items: center;
-
     width: 80%;
     height: 80%;
     margin: 0 auto;
     padding: 20px;
-
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 2;
-
+    z-index: 1;
     background: azure;
+    border-radius: 10px;
+    box-shadow: 0px 0px 40px black;
 }
 
 .productImage {
@@ -35,19 +34,18 @@
 
 .productImage img {
     max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 40px black;
 }
 
 .productClose {
     position: absolute;
     top: 10px;
     right: 10px;
-
     width: 30px;
     height: 30px;
-
     background: transparent;
     border: none;
-
     cursor: pointer;
 }
 
@@ -74,9 +72,12 @@
 .productOrder {
     max-width: 300px;
     height: 90%;
-
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     border: 1px solid #707070;
     padding: 20px;
+    background-color: azure;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px black;
 }
 
 .productOrder h1,
@@ -85,11 +86,11 @@
 }
 
 .productBuy {
-    width: 225px;
+
+    width: 15vw;
     height: 40px;
-    margin: 20px 0;
-    background-color: #2bbce9;
-    color: black;
+    background-color: black;
+    color: azure;
     border: none;
     border-radius: 24px;
     font-family: "Open Sans";
@@ -97,10 +98,14 @@
     font-weight: 600;
     cursor: pointer;
     transition: all 250ms ease;
+    margin: 20px auto;
 }
 
 .productBuy:hover {
-    background-color: #1897bd;
+    background-color: transparent;
+    border: 2px solid black;
+    color: black;
+    box-shadow: 0px 0px 10px black;
 }
 
 .productBought {
@@ -120,6 +125,11 @@
         margin-top: 20px;
         grid-column: span 2;
     }
+
+    .productBuy {
+        width: 40vw;
+        margin: 10px auto;
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -130,5 +140,10 @@
 
     .productImage {
         grid-column: span 2;
+    }
+
+    .productBuy {
+        width: 40vw;
+        margin: 10px auto;
     }
 }
