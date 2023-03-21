@@ -17,3 +17,32 @@ main {
   justify-content: center;
   text-align: center;
 }
+
+.h1Box {
+  animation: MoveUpDown 4s linear infinite;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+@keyframes MoveUpDown {
+
+  0%,
+  100% {
+    bottom: 0;
+  }
+
+  50% {
+    bottom: 100px;
+  }
+}
+
+@media(max-width:786px) {
+  main {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+}

@@ -3,6 +3,8 @@ import Rating from './Rating'
 import { ethers } from 'ethers';
 import '../styles/Product.css'
 import close from '../assets/close.svg'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export default function Product({ item, provider, account, dkart, togglePop }) {
     const [order, setOrder] = useState(null)
     const [hasBought, setHasBought] = useState(false)
@@ -20,6 +22,20 @@ export default function Product({ item, provider, account, dkart, togglePop }) {
     }
 
     const buyHandler = async () => {
+
+        if (!account) {
+            toast.warning('Please connect to wallet', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
+            return;
+        }
         const signer = await provider.getSigner()
         let transaction = await dkart.connect(signer).buy(item.id, { value: item.cost })
         await transaction.wait()
@@ -30,7 +46,21 @@ export default function Product({ item, provider, account, dkart, togglePop }) {
         fetchDetails()
     }, [hasBought])
 
-    return (
+    return (<>
+
+        <ToastContainer
+            position="top-right"
+            autoClose={2000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+        />
+        <ToastContainer />
         <div className="product">
             <div className="productDetails">
                 <div className="productImage">
@@ -77,7 +107,6 @@ export default function Product({ item, provider, account, dkart, togglePop }) {
                     )}
 
                     <button className='productBuy' onClick={buyHandler}
-                        disabled={!account}
                     >
                         Buy Now
                     </button>
@@ -108,5 +137,6 @@ export default function Product({ item, provider, account, dkart, togglePop }) {
                 </button>
             </div>
         </div >
+    </>
     );
 }

@@ -6,7 +6,7 @@ export default function Metamask() {
         <>
             <main>
                 <h1
-
+                    className='h1Box'
                     style={{
                         color: "#e7ebf2",
                         fontSize: "12.5rem",
