@@ -7,6 +7,7 @@ import Product from './components/Product'
 import Dkart from './abis/Dkart.json'
 import { RotatingSquare } from 'react-loader-spinner'
 import "./App.css"
+import Metamask from './components/Metamask';
 function App() {
   const [provider, setProvider] = useState(null);
   const [dkart, setDkart] = useState(null);
@@ -25,6 +26,11 @@ function App() {
     toggle ? setToggle(false) : setToggle(true)
   }
 
+  if (!window.ethereum)
+    return <><Metamask /></>
+
+
+
   const loadBlockchainData = async () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum)
 
@@ -41,6 +47,7 @@ function App() {
     const network = await provider.getNetwork()
     const dAddress = "0xe7BF6C60A447423A4068585DE6a1E32B5f6600E4";
     const dkart = new ethers.Contract(dAddress, Dkart.abi, provider)
+
     setDkart(dkart)
     const items = []
     for (var i = 0; i < 9; i++) {
@@ -73,9 +80,6 @@ function App() {
       visible={true}
     />
 
-
-  if (!window.ethereum)
-    return <>Please install metamask</>
 
 
   return (

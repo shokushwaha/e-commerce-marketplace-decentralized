@@ -49,9 +49,8 @@ export default function Navigation({ account, setAccount }) {
                 pauseOnHover
                 theme="dark"
             />
-
-            {/* Same as */}
             <ToastContainer />
+
             <nav>
                 <div className='navBrand'>
                     <h1>Dkart</h1>
@@ -67,7 +66,6 @@ export default function Navigation({ account, setAccount }) {
                         <div className="acccBox">
 
                             <h1 style={{ color: "azure", margin: "10px auto", borderBottom: "2px solid azure", borderTop: "2px solid azure", padding: "4px 0px" }}>
-
                                 Connected
                             </h1>
 
